@@ -6,6 +6,8 @@ Build image:
 Import local image to be able to use it locally:
 > k3d image import log-output-app
 
+## Manual deployment
+
 Deploy application:
 > kubectl create deployment log-output-dep --image=log-output-app
 
@@ -13,5 +15,10 @@ Edit imagePullPolicy from default 'Always' to 'IfNotPresent'\
 to allow the local image to be used:
 > kubectl edit deployment log-output-dep
 
+## Deployment using deployment.yaml
+
+> kubectl apply -f manifests/deployment.yaml
+
+## Checkup
 Confirm the app is running in cluster:
 > kubectl logs log-output-...
